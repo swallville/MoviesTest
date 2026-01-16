@@ -103,7 +103,7 @@ export const MovieDetails = ({ id }: MovieDetailsProps) => {
               </div>
             </section>
             {/** movie overview container */}
-            <h2 className="mt-4 max-w-2xl text-left font-[Roboto] text-sm font-medium leading-6 text-[#757575]">
+            <h2 className="mt-4 max-w-2xl md:max-w-full text-left font-[Roboto] text-sm font-medium leading-6 text-[#757575]">
               {movie.overview}
             </h2>
             {/** movie trailers container */}
