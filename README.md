@@ -33,6 +33,10 @@ pnpm validate
 
 This project shows a list of popular movies using the themoviedb API.
 
+**Workflow**
+
+https://github.com/user-attachments/assets/bdc77e04-3407-4389-ac54-ef847160ca65
+
 **Main Worflow**
 ![Main Worflow](./public/mainPage.png)
 
