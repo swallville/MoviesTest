@@ -1,0 +1,12 @@
+*.yml
+dist
+logs
+node_modules
+.next
+coverage
+.coverage
+out
+pnpm-lock.yaml
+.github
+build
+*.lock
