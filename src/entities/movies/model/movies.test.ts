@@ -54,23 +54,23 @@ describe("Movies Store", () => {
       expect(result.value.results.at(0)?.id).toBe(
         mockMoviesInstance.movies.at(0)?.id,
       );
+
+      await allSettled(setMovies, {
+        params:
+          result.status === "done" && !("error" in result.value)
+            ? {
+                ...mockMoviesInstance,
+              }
+            : INITIAL_DATA,
+        scope,
+      });
+
+      const moviesState = scope.getState($movies);
+
+      expect(moviesState.movies.length).toBe(mockMoviesInstance.movies.length);
+      expect(moviesState.currentPage).toBe(mockMoviesInstance.currentPage);
+      expect(moviesState.totalPages).toBe(mockMoviesInstance.totalPages);
     }
-
-    await allSettled(setMovies, {
-      params:
-        result.status === "done" && !("error" in result.value)
-          ? {
-              ...mockMoviesInstance,
-            }
-          : INITIAL_DATA,
-      scope,
-    });
-
-    const moviesState = scope.getState($movies);
-
-    expect(moviesState.movies.length).toBe(mockMoviesInstance.movies.length);
-    expect(moviesState.currentPage).toBe(mockMoviesInstance.currentPage);
-    expect(moviesState.totalPages).toBe(mockMoviesInstance.totalPages);
   });
 
   it("should handle the error thrown by requestMoviesFx", async () => {
