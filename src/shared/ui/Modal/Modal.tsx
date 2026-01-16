@@ -42,6 +42,6 @@ export const Modal = ({ onClose, children }: ModalProps) => {
         </button>
       </dialog>
     </section>,
-    document.getElementById("modal-root") as HTMLElement,
+    document.getElementById("modal-root") as HTMLDivElement,
   );
 };
