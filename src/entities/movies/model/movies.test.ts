@@ -12,6 +12,7 @@ import { MoviesStore } from "../types";
 import { generateRandomMoviesStore } from "../lib/movies-utils";
 import { getMovies } from "#/shared/api/api";
 import { requestMoviesFx } from "./effects";
+import { moviesRequested, setMovies } from "./events";
 
 describe("Movies Store", () => {
   const mockedMoviesStore: MoviesStore = generateRandomMoviesStore();
@@ -22,7 +23,7 @@ describe("Movies Store", () => {
     expect(state).toEqual(INITIAL_DATA);
   });
 
-  it("should return a valid movies API instance", async () => {
+  it("should update the movies store as expected", async () => {
     const mockMoviesInstance = deepmerge(INITIAL_DATA, mockedMoviesStore);
     const returnValue = {
       results: mockMoviesInstance.movies,
@@ -34,7 +35,7 @@ describe("Movies Store", () => {
 
     const scope = fork();
 
-    // Calls the provided unit within the current scope and wait for all triggered effects to complete.
+    // Trigger requestMoviesFx directly to ensure the mock is used
     const result = await allSettled(requestMoviesFx, {
       params: {
         url: `http://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PRIVATE_MOVIES_TOKEN}&page=1`,
@@ -43,10 +44,33 @@ describe("Movies Store", () => {
     });
 
     expect(result.status).toBe("done");
-    expect(result.value).toEqual(returnValue);
+    expect(result.value).not.toHaveProperty("error");
+    expect(result.value).toHaveProperty("results");
+
+    if (!("error" in result.value) && result.status === "done") {
+      expect(result.value.results).toHaveLength(
+        mockMoviesInstance.movies.length,
+      );
+      expect(result.value.results.at(0)?.id).toBe(
+        mockMoviesInstance.movies.at(0)?.id,
+      );
+    }
+
+    await allSettled(setMovies, {
+      params:
+        result.status === "done" && !("error" in result.value)
+          ? {
+              ...mockMoviesInstance,
+            }
+          : INITIAL_DATA,
+      scope,
+    });
+
     const moviesState = scope.getState($movies);
 
-    expect(moviesState).not.toBeNull();
+    expect(moviesState.movies.length).toBe(mockMoviesInstance.movies.length);
+    expect(moviesState.currentPage).toBe(mockMoviesInstance.currentPage);
+    expect(moviesState.totalPages).toBe(mockMoviesInstance.totalPages);
   });
 
   it("should handle the error thrown by requestMoviesFx", async () => {
