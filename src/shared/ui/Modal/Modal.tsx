@@ -35,6 +35,7 @@ export const Modal = ({ onClose, children }: ModalProps) => {
         {children}
         <button
           type="button"
+          aria-label="Close modal"
           className="flex justify-center items-center absolute top-4 right-4 rounded-[50%] w-8 md:w-10 h-8 md:h-10 bg-[rgba(0,0,0,0.7)] z-1100 text-2xl font-bold text-white hover:text-[#DEDEDE] focus:outline-none cursor-pointer"
           onClick={onModalClose}
         >
