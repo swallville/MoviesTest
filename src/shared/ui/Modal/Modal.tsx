@@ -29,14 +29,14 @@ export const Modal = ({ onClose, children }: ModalProps) => {
     >
       <dialog
         ref={dialogRef}
-        className="flex justify-start items-start pt-15 pb-5 md:pb-10 px-5 md:px-10 m-10 relative w-[80%] md:w-[95%] max-w-125 md:max-w-full h-auto rounded-xl border-none bg-white font-[Roboto] text-2xl font-medium leading-6 text-[#757575]"
+        className="flex relative justify-start items-start pt-15 pb-5 md:pb-10 px-5 md:px-10 m-10 w-[80%] md:w-[95%] max-w-125 md:max-w-full h-auto rounded-xl border-none bg-white font-[Roboto] text-2xl font-medium leading-6 text-[#757575]"
         onClose={onModalClose}
       >
         {children}
         <button
           type="button"
           aria-label="Close modal"
-          className="flex justify-center items-center absolute top-4 right-4 rounded-[50%] w-8 md:w-10 h-8 md:h-10 bg-[rgba(0,0,0,0.7)] z-1100 text-2xl font-bold text-white hover:text-[#DEDEDE] focus:outline-none cursor-pointer"
+          className="flex absolute justify-center items-center top-4 right-4 rounded-[50%] w-8 md:w-10 h-8 md:h-10 bg-[rgba(0,0,0,0.7)] z-1100 text-2xl font-bold text-white hover:text-[#DEDEDE] focus:outline-none cursor-pointer"
           onClick={onModalClose}
         >
           X
