@@ -48,7 +48,6 @@ module.exports = {
           },
         ],
 
-        // TODO: turn this on in separate PR, remove TODO
         // 'typescript-sort-keys/interface': 'off',
         // 'typescript-sort-keys/string-enum': 'off',
         // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html
