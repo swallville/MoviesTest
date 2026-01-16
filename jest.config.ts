@@ -1,5 +1,19 @@
-// jest.config.js
-module.exports = async () => ({
+import type { Config } from "jest";
+import nextJest from "next/jest";
+
+const createJestConfig = nextJest({
+  dir: "./",
+});
+
+// All of these modules need to be transformed by @swc/jest because, when they
+// are imported in the Jest context, it tries to import the ESM version. This
+// is done as a whitelist because we could transform all of node_modules, but
+// doing so makes tests considerably slower.
+// Note that these are all regexes and should be escaped appropriately.
+const esmModules = ["@faker-js/faker"].join("|");
+
+const config: Config = {
+  coverageProvider: "v8",
   clearMocks: true,
   collectCoverageFrom: [
     "{src,pages,server}/**/*.{js,jsx,ts,tsx}",
@@ -79,9 +93,16 @@ module.exports = async () => ({
         },
       },
     ],
+    [`node_modules/(${esmModules})/.*\.js$`]: "@swc/jest",
+    [`node_modules\\\\(${esmModules})\\\\.+\\.js$`]: "@swc/jest",
   },
-  transformIgnorePatterns: ["\\.(css|less|scss|sass)$"],
+  transformIgnorePatterns: [
+    `node_modules[/\\\\](?!(?:${esmModules}|antd|@ant-design))[/\\\\]`,
+    "\\.(css|less|scss|sass)$",
+  ],
   // This is a workaround for:
   // https://github.com/facebook/jest/issues/11956
   workerIdleMemoryLimit: "1GB",
-});
+};
+
+export default createJestConfig(config);

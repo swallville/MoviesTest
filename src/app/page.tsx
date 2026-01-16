@@ -53,11 +53,10 @@ export default function Home() {
               <Image
                 src={createImageUrl(movie.poster_path, "w185")}
                 alt={movie.title}
-                className="shadow-lg"
+                className="shadow-lg w-[50vw] h-auto"
                 loading="lazy"
                 width={0}
                 height={0}
-                style={{ width: "50vw", height: "auto" }}
               />
             </Link>
           ))}

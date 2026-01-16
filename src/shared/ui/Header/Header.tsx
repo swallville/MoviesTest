@@ -30,26 +30,40 @@ const Header = ({
   const backgroundColor = colorVariants[defaultBackgroundColor].backgroundColor;
   const padding = colorVariants[defaultBackgroundColor].padding;
 
+  const isPrimary = defaultBackgroundColor === "primary";
+
   const isNotMainPage = pathname.startsWith("/movies");
 
   return (
     <header
-      className={`w-full ${padding} text-white flex items-center gap-2 ${backgroundColor}`}
+      className={`w-full ${padding} text-white flex flex-row items-center ${backgroundColor} justify-between`}
     >
-      {goBackButton && isNotMainPage && (
-        <Link href={"/"}>
-          <Image
-            src="/arrow.png"
-            alt="Go back button"
-            width={14}
-            height={14}
-            priority
-          />
-        </Link>
+      <div className={`w-full flex flex-row items-center gap-3.75`}>
+        {goBackButton && isNotMainPage && (
+          <Link href={"/"}>
+            <Image
+              src="/arrow.png"
+              alt="Go back button"
+              width={14}
+              height={14}
+              priority
+            />
+          </Link>
+        )}
+        <h1 className="text-xl font-bold leading-6">
+          {isNotMainPage ? title : "Movie Details"}
+        </h1>
+      </div>
+
+      {isPrimary && (
+        <Image
+          src="/moreVertical.svg"
+          alt="More vertical button"
+          width={28}
+          height={28}
+          priority
+        />
       )}
-      <h1 className="text-xl font-bold leading-6">
-        {isNotMainPage ? title : "Movie Details"}
-      </h1>
     </header>
   );
 };
