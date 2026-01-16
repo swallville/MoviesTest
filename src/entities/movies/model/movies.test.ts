@@ -34,6 +34,7 @@ describe("Movies Store", () => {
 
     const scope = fork();
 
+    // Calls the provided unit within the current scope and wait for all triggered effects to complete.
     const result = await allSettled(requestMoviesFx, {
       params: {
         url: `http://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PRIVATE_MOVIES_TOKEN}&page=1`,
@@ -55,6 +56,7 @@ describe("Movies Store", () => {
 
     const scope = fork();
 
+    // Calls the provided unit within the current scope and wait for all triggered effects to complete.
     const result = await allSettled(requestMoviesFx, {
       params: {
         url: `http://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PRIVATE_MOVIES_TOKEN}&page=1`,
