@@ -61,13 +61,13 @@ export const generateRandomMoviesStore = (): MoviesStore => {
           id: faker.number.int(),
           logo_path: null,
           name: faker.company.name(),
-          origin_country: faker.address.countryCode(),
+          origin_country: faker.location.countryCode(),
         },
       ],
       production_countries: [
         {
-          iso_3166_1: faker.address.countryCode(),
-          name: faker.address.country(),
+          iso_3166_1: faker.location.countryCode(),
+          name: faker.location.country(),
         },
       ],
       revenue: faker.number.int({ min: 1000, max: 1000000000 }),
