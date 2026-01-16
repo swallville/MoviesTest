@@ -1,7 +1,5 @@
 import { z } from "zod";
 import { zodContract } from '@farfetched/zod';
-import { over } from "rambdax";
-import { id } from "zod/locales";
 
 const MovieDataSchema = z.object({
   adult: z.boolean(),

@@ -43,7 +43,7 @@ describe("useDeviceType", () => {
     });
 
     jest.spyOn(window, "matchMedia").mockImplementation(
-      (_query: string) =>
+      () =>
         ({
           addEventListener: jest.fn(),
           addListener: jest.fn(),
@@ -72,7 +72,7 @@ describe("useDeviceType", () => {
     });
 
     jest.spyOn(window, "matchMedia").mockImplementation(
-      (_query: string) =>
+      () =>
         ({
           addEventListener: jest.fn(),
           addListener: jest.fn(),
