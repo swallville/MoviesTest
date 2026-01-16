@@ -17,7 +17,7 @@ export const Modal = ({ onClose, children }: ModalProps) => {
   };
 
   useEffect(() => {
-    if (dialogRef.current && !dialogRef.current?.open) {
+    if (dialogRef.current && !dialogRef.current.open) {
       dialogRef.current.showModal();
     }
   }, []);
@@ -29,7 +29,7 @@ export const Modal = ({ onClose, children }: ModalProps) => {
     >
       <dialog
         ref={dialogRef}
-        className="flex justify-start items-start py-15 px-5 md:px-10 m-10 relative w-[80%] md:w-[95%] max-w-125 md:max-w-full h-auto rounded-xl border-none bg-white font-[Roboto] text-2xl font-medium leading-6 text-[#757575]"
+        className="flex justify-start items-start pt-15 pb-5 md:pb-10 px-5 md:px-10 m-10 relative w-[80%] md:w-[95%] max-w-125 md:max-w-full h-auto rounded-xl border-none bg-white font-[Roboto] text-2xl font-medium leading-6 text-[#757575]"
         onClose={onModalClose}
       >
         {children}
