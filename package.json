@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "analyse:circular": "npx dpdm src/** --exclude node_modules --tree false --warning false --exit-code circular:1",
+    "analyse:circular": "npx dpdm 'src/**/*.*' --exclude node_modules --tree false --warning false --exit-code circular:1",
     "analyse:deps": "npx depcheck",
     "dev": "NEXT_PRIVATE_LOCAL_WEBPACK=true next dev",
     "dev:windows": "set NEXT_PRIVATE_LOCAL_WEBPACK=true && next dev",
