@@ -46,7 +46,6 @@
       "@types/*",
       "node_modules/@types"
     ],
-    "ignoreDeprecations": "6.0",
     "plugins": [
       {
         "name": "next"
