@@ -49,8 +49,8 @@ describe("Movies Store", () => {
     expect(moviesState).not.toBeNull();
   });
 
-  it("should handle the error thrown by loadCartApi", async () => {
-    const errorMessage = "Failed to load cart API";
+  it("should handle the error thrown by requestMoviesFx", async () => {
+    const errorMessage = "Failed to load requestMoviesFx";
     const returnValue = { error: errorMessage };
     (getMovies as jest.Mock).mockResolvedValue(returnValue);
 
