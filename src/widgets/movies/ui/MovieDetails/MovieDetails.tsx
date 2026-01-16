@@ -110,13 +110,19 @@ export const MovieDetails = ({ id }: MovieDetailsProps) => {
               </h3>
               {/** trailers videos */}
               <div className="flex flex-col gap-2 overflow-x-auto w-full">
-                {movieVideos.map((video, index) => (
-                  <VideoCard
-                    key={video.id}
-                    onClick={() => onVideoCardClick(video.key)}
-                    index={index}
-                  />
-                ))}
+                {movieVideos.length > 0 ? (
+                  <>
+                    {movieVideos.map((video, index) => (
+                      <VideoCard
+                        key={video.id}
+                        onClick={() => onVideoCardClick(video.key)}
+                        index={index}
+                      />
+                    ))}
+                  </>
+                ) : (
+                  <Loading />
+                )}
               </div>
             </section>
           </main>
