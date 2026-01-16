@@ -39,6 +39,8 @@ export default function RootLayout({
 
         <Header goBackButton />
         {children}
+        {/** Modal root for portal */}
+        <div id="modal-root" />
       </body>
     </html>
   );

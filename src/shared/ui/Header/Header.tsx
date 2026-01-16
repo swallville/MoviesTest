@@ -1,8 +1,11 @@
 "use client";
 
+import { useCallback, useState } from "react";
+
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { Modal } from "../Modal";
 
 const colorVariants = {
   primary: {
@@ -25,6 +28,7 @@ const Header = ({
   defaultBackgroundColor = "primary",
   goBackButton = true,
 }: HeaderProps) => {
+  const [showModal, setShowModal] = useState(false);
   const pathname = usePathname();
 
   const backgroundColor = colorVariants[defaultBackgroundColor].backgroundColor;
@@ -33,6 +37,14 @@ const Header = ({
   const isPrimary = defaultBackgroundColor === "primary";
 
   const isNotMainPage = pathname.startsWith("/movies");
+
+  const onModalOpen = useCallback(() => {
+    setShowModal(true);
+  }, []);
+
+  const onModalClose = useCallback(() => {
+    setShowModal(false);
+  }, []);
 
   return (
     <header
@@ -62,8 +74,12 @@ const Header = ({
           width={28}
           height={28}
           priority
+          onClick={onModalOpen}
+          className="cursor-pointer"
         />
       )}
+
+      {showModal && <Modal onClose={onModalClose}>Modal Content</Modal>}
     </header>
   );
 };
