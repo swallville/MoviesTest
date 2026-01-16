@@ -30,6 +30,7 @@
     "@farfetched/core": "^0.14.0",
     "@farfetched/zod": "^0.14.0",
     "clsx": "^2.1.1",
+    "deepmerge": "^4.3.1",
     "effector": "^23.4.4",
     "effector-react": "^23.3.0",
     "jest-extended": "^7.0.0",
@@ -37,6 +38,7 @@
     "rambdax": "^11.3.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "uuid": "^13.0.0",
     "zod": "^4.3.5"
   },
   "devDependencies": {

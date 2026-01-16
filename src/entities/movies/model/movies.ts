@@ -9,7 +9,7 @@ import {
   setSelectedMovieVideos,
 } from "./events";
 
-const INITIAL_DATA: MoviesStore = {
+export const INITIAL_DATA: MoviesStore = {
   movies: [],
   selectedMovieID: null,
   currentPage: 0,
