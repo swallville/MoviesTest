@@ -31,8 +31,8 @@ const Carrousel = ({ children, loadMore, loading }: CarrouselProps) => {
   );
 
   return (
-    <div className="relative w-full h-full">
-      <div className={`grid grid-cols-2 gap-0`}>
+    <div className="relative w-full h-full" data-testid="carrousel">
+      <div className={`grid grid-cols-2 gap-0`} data-testid="carrousel-grid">
         {childrenArray.map((child, idx) => {
           if (idx === childrenArray.length - 1) {
             return (

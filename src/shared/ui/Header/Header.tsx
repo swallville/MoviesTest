@@ -48,12 +48,14 @@ const Header = ({
 
   return (
     <header
+      data-testid="header"
       className={`w-full ${padding} text-white flex flex-row items-center ${backgroundColor} justify-between`}
     >
       <div className={`w-full flex flex-row items-center gap-3.75`}>
         {goBackButton && isNotMainPage && (
           <Link href={"/"}>
             <Image
+              data-testid="go-back-button"
               src="/arrow.png"
               alt="Go back button"
               width={14}
@@ -73,6 +75,7 @@ const Header = ({
 
       {isPrimary && (
         <Image
+          data-testid="more-vertical-button"
           src="/moreVertical.svg"
           alt="More vertical button"
           width={28}
