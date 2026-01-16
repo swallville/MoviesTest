@@ -12,7 +12,7 @@ import { MoviesStore } from "../types";
 import { generateRandomMoviesStore } from "../lib/movies-utils";
 import { getMovies } from "#/shared/api/api";
 import { requestMoviesFx } from "./effects";
-import { moviesRequested, setMovies } from "./events";
+import { setMovies } from "./events";
 
 describe("Movies Store", () => {
   const mockedMoviesStore: MoviesStore = generateRandomMoviesStore();
