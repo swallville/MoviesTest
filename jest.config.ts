@@ -17,7 +17,9 @@ const config: Config = {
   clearMocks: true,
   collectCoverageFrom: [
     "{src,pages,server}/**/*.{js,jsx,ts,tsx}",
+    "!src/app/**/*.{js,jsx,ts,tsx}",
     "!src/**/*.{mocks,mock}.ts",
+    "!src/**/*types.{js,jsx,ts,tsx}",
     "!src/**/*.d.ts",
     "!src/**/*.story.tsx",
     "!**/node_modules/**",
