@@ -66,7 +66,7 @@ export const MovieDetails = ({ id }: MovieDetailsProps) => {
                 width={0}
                 height={0}
               />
-
+              {/** movie details container */}
               <div className="flex flex-col justify-between">
                 <div className="flex flex-col">
                   {/** movie year */}
@@ -130,7 +130,7 @@ export const MovieDetails = ({ id }: MovieDetailsProps) => {
             </section>
           </main>
         </section>
-
+        {/** video player */}
         {selectedVideo && (
           <VideoPlayer
             selectedVideo={selectedVideo}
