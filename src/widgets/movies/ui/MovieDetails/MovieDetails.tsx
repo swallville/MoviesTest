@@ -86,7 +86,7 @@ export const MovieDetails = ({ id }: MovieDetailsProps) => {
                 {/** add to favorites button */}
                 <button
                   type="button"
-                  className="mt-4 inline-flex items-center rounded-xs bg-[#746A64] px-6 py-4 text-base leading-6 font-medium text-white focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-[#746A64] w-full h-14"
+                  className="mt-4 inline-flex items-center rounded-xs bg-[#746A64] px-6 py-4 text-base leading-6 font-medium text-white hover:text-[#DEDEDE] focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-[#746A64] w-full h-14 cursor-pointer"
                   onClick={() => {
                     if (isMovieFavorite) {
                       removeFavoriteMovie(String(id));

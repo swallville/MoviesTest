@@ -59,6 +59,7 @@ const Header = ({
               width={14}
               height={14}
               priority
+              className="cursor-pointer hover:opacity-75"
             />
           </Link>
         )}
@@ -75,7 +76,7 @@ const Header = ({
           height={28}
           priority
           onClick={onModalOpen}
-          className="cursor-pointer"
+          className="cursor-pointer hover:opacity-75"
         />
       )}
 
