@@ -65,6 +65,7 @@ describe("Movies Store", () => {
     });
 
     expect(result.status).toBe("done");
+    expect(result.value).toHaveProperty("error");
     expect(result.value).toBe(returnValue);
   });
 });
