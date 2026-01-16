@@ -13,6 +13,7 @@ export const VideoCard = ({ onClick, index }: VideoCardProps) => {
       type="button"
       tabIndex={index}
       aria-label={`Play movie trailer ${index + 1}`}
+      data-testid={`video-card-${index}`}
     >
       <Image
         src="/vector.png"
@@ -20,9 +21,13 @@ export const VideoCard = ({ onClick, index }: VideoCardProps) => {
         width={28}
         height={28}
         priority
+        data-testid={`video-card-image-${index}`}
       />
 
-      <p className="font-[Roboto] text-sm font-medium leading-6 tracking-[2%] text-[#757575]">
+      <p
+        className="font-[Roboto] text-sm font-medium leading-6 tracking-[2%] text-[#757575]"
+        data-testid={`video-card-text-${index}`}
+      >
         {`Play trailer ${index + 1}`}
       </p>
     </button>

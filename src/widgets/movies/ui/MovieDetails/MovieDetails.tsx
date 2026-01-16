@@ -59,6 +59,7 @@ export const MovieDetails = ({ id }: MovieDetailsProps) => {
             <section className="flex flex-row gap-4 max-h-42.5 md:max-w-2xl">
               {/** movie poster */}
               <Image
+                data-testid="movie-poster"
                 src={createImageUrl(movie.poster_path, "w185")}
                 alt={movie.title}
                 className="shadow-lg rounded-xs w-28.75 h-auto"
@@ -70,21 +71,31 @@ export const MovieDetails = ({ id }: MovieDetailsProps) => {
               <div className="flex flex-col justify-between">
                 <div className="flex flex-col">
                   {/** movie year */}
-                  <span className="font-[Roboto] text-xl font-normal leading-6 text-[#212121]">
+                  <span
+                    className="font-[Roboto] text-xl font-normal leading-6 text-[#212121]"
+                    data-testid="movie-year"
+                  >
                     {new Date(movie.release_date).getFullYear()}
                   </span>
                   {/** movie duration */}
-                  <span className="font-[Roboto] text-sm font-normal leading-6 text-[#212121]">
+                  <span
+                    className="font-[Roboto] text-sm font-normal leading-6 text-[#212121]"
+                    data-testid="movie-duration"
+                  >
                     {`${movie.runtime} mins`}
                   </span>
                   {/** movie rating */}
-                  <span className="font-[Roboto] text-sm font-bold leading-6 text-[#212121]">
+                  <span
+                    className="font-[Roboto] text-sm font-bold leading-6 text-[#212121]"
+                    data-testid="movie-rating"
+                  >
                     {`${Number(movie.vote_average).toFixed(1)}/10`}
                   </span>
                 </div>
 
                 {/** add to favorites button */}
                 <button
+                  data-testid="favorite-button"
                   type="button"
                   className="mt-4 inline-flex items-center rounded-xs bg-[#746A64] px-6 py-4 text-base leading-6 font-medium text-white hover:text-[#DEDEDE] focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-[#746A64] w-full h-14 cursor-pointer"
                   aria-label={
@@ -103,16 +114,25 @@ export const MovieDetails = ({ id }: MovieDetailsProps) => {
               </div>
             </section>
             {/** movie overview container */}
-            <h2 className="mt-4 max-w-2xl md:max-w-full text-left font-[Roboto] text-sm font-medium leading-6 text-[#757575]">
+            <h2
+              className="mt-4 max-w-2xl md:max-w-full text-left font-[Roboto] text-sm font-medium leading-6 text-[#757575]"
+              data-testid="movie-overview"
+            >
               {movie.overview}
             </h2>
             {/** movie trailers container */}
             <section className="flex flex-col gap-4 w-full">
-              <h3 className="font-[Roboto] text-sm font-medium leading-6 tracking-[2%] text-[#757575] border-b border-[#DEDEDE]">
+              <h3
+                className="font-[Roboto] text-sm font-medium leading-6 tracking-[2%] text-[#757575] border-b border-[#DEDEDE]"
+                data-testid="trailers-heading"
+              >
                 TRAILERS
               </h3>
               {/** trailers videos */}
-              <div className="flex flex-col gap-2 overflow-x-auto w-full">
+              <div
+                className="flex flex-col gap-2 overflow-x-auto w-full"
+                data-testid="trailers-videos-container"
+              >
                 {movieVideos.length > 0 ? (
                   <>
                     {movieVideos.map((video, index) => (

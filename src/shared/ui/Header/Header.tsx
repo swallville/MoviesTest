@@ -63,7 +63,10 @@ const Header = ({
             />
           </Link>
         )}
-        <h1 className="text-xl font-bold leading-6">
+        <h1
+          className="text-xl font-bold leading-6"
+          data-testid={`header-title-${defaultBackgroundColor}`}
+        >
           {isNotMainPage ? title : "Movie Details"}
         </h1>
       </div>

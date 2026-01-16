@@ -8,8 +8,12 @@ export const VideoPlayer = ({
   onCloseVideo,
 }: VideoPlayerProps) => {
   return (
-    <section className="fixed top-0 w-screen h-screen z-1000 bg-black">
+    <section
+      className="fixed top-0 w-screen h-screen z-1000 bg-black"
+      data-testid="video-player"
+    >
       <button
+        data-testid="close-video-button"
         onClick={onCloseVideo}
         className="absolute top-6 right-6 z-1100 bg-[rgba(0,0,0,0.7)] text-white border-none rounded-[50%] w-10 h-10 text-2xl hover:text-[#DEDEDE] focus:outline-none cursor-pointer"
         aria-label="Close video"
@@ -19,6 +23,7 @@ export const VideoPlayer = ({
       </button>
 
       <iframe
+        data-testid="youtube-iframe"
         className="w-screen h-screen bg-black"
         title="Youtube player"
         sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
