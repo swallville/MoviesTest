@@ -10,10 +10,10 @@ export const Modal = ({ onClose, children }: ModalProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const onModalClose = () => {
+    onClose();
     if (dialogRef.current && dialogRef.current.open) {
       dialogRef.current.close();
     }
-    onClose();
   };
 
   useEffect(() => {
