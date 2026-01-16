@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["./import.js", "./react-hooks.js", "./react.js"],
+  extends: ["./import.js"],
   env: {
     browser: true,
     node: true,
