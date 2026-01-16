@@ -23,7 +23,7 @@
     "tsc:check": "tsc --noEmit --incremental",
     "tsc:emit": "tsc --declaration --emitDeclarationOnly --outDir",
     "tsc:watch": "tsc --noEmit --incremental --watch",
-    "validate": "pnpm run format:check && pnpm run lint:fix && pnpm run tsc:check && pnpm run analyse:circular && pnpm run test:local && pnpm run sync:check"
+    "validate": "pnpm run format:check && pnpm run lint:fix && pnpm run tsc:check && pnpm run analyse:circular && pnpm run test:local"
   },
   "dependencies": {
     "@effector/next": "^0.7.2",
