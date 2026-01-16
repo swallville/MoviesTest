@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import {Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
 import Header from "#/shared/ui/Header/Header";

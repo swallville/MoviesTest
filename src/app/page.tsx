@@ -15,8 +15,10 @@ export default function Home() {
   const moviesRequestIsPending = moviesSelectors.useMoviesRequestIsPending();
   const moviesCurrentPage = moviesSelectors.useMoviesCurrentPage();
   const movie = moviesSelectors.useGetCurrentMovieDetails();
-  const updatedSelectedMovieDetails = moviesSelectors.useSetSelectedMovieDetails();
-  const updatedSelectedMovieVideos = moviesSelectors.useSetSelectedMovieVideos();
+  const updatedSelectedMovieDetails =
+    moviesSelectors.useSetSelectedMovieDetails();
+  const updatedSelectedMovieVideos =
+    moviesSelectors.useSetSelectedMovieVideos();
 
   const onLoadMore = useCallback(() => {
     moviesRequested(moviesCurrentPage + 1);
@@ -31,12 +33,21 @@ export default function Home() {
       updatedSelectedMovieDetails(null);
       updatedSelectedMovieVideos([]);
     }
-  }, [movie, movies, moviesRequested, updatedSelectedMovieDetails, updatedSelectedMovieVideos]);
+  }, [
+    movie,
+    movies,
+    moviesRequested,
+    updatedSelectedMovieDetails,
+    updatedSelectedMovieVideos,
+  ]);
 
   return (
     <section className="flex min-h-screen items-center justify-center">
       <main className="flex min-h-screen w-full flex-col items-center">
-        <Carrousel loadMore={onLoadMore} loading={moviesRequestIsPending || movies.length === 0}>
+        <Carrousel
+          loadMore={onLoadMore}
+          loading={moviesRequestIsPending || movies.length === 0}
+        >
           {movies.map((movie) => (
             <Link key={movie.id} href={`/movies/${movie.id}`}>
               <Image
@@ -46,7 +57,7 @@ export default function Home() {
                 loading="lazy"
                 width={0}
                 height={0}
-                style={{ width: '50vw', height: 'auto' }}
+                style={{ width: "50vw", height: "auto" }}
               />
             </Link>
           ))}

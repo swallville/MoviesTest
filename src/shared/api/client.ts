@@ -2,7 +2,6 @@ import { isEmpty, maybe } from "rambdax";
 import { ApiClientProps } from "./types";
 import createQueryString from "#/shared/lib/utils/createQueryString";
 
-
 const isPostRequest = (method: string) => method === "POST";
 const isGetRequest = (method: string) => method === "GET";
 
@@ -47,7 +46,7 @@ const apiClient = async <T>(options: ApiClientProps) => {
     return result;
   } catch (error) {
     return {
-        error,
+      error,
     };
   }
 };

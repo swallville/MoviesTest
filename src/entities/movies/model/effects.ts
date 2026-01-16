@@ -1,20 +1,25 @@
-import {
-  attach,
-  createEffect,
-  Effect,
-} from "effector";
+import { attach, createEffect, Effect } from "effector";
 import { createQuery } from "@farfetched/core";
 
-import { MovieDetailsResponse, MovieDetailsResponseContract, MoviesResponse, MoviesResponseContract, MovieVideosResponse, MovieVideosResponseContract } from "./apiSchema";
+import {
+  MovieDetailsResponse,
+  MovieDetailsResponseContract,
+  MoviesResponse,
+  MoviesResponseContract,
+  MovieVideosResponse,
+  MovieVideosResponseContract,
+} from "./apiSchema";
 import { getMovieDetails, getMovies, getMovieVideos } from "#/shared/api/api";
 import { $movies } from "./movies";
 import { ApiClientProps } from "#/shared/api/types";
 
-export const requestMoviesFx = createEffect(
-  getMovies,
-);
+export const requestMoviesFx = createEffect(getMovies);
 
-export const fetchMoviesFx: Effect<ApiClientProps, MoviesResponse | { error: unknown }, Error>  = attach({
+export const fetchMoviesFx: Effect<
+  ApiClientProps,
+  MoviesResponse | { error: unknown },
+  Error
+> = attach({
   effect: requestMoviesFx,
   mapParams: (params) => ({
     ...params,
@@ -30,11 +35,13 @@ export const moviesQuery = createQuery({
   contract: MoviesResponseContract,
 });
 
-export const requestMovieDetailsFx = createEffect(
-  getMovieDetails,
-);
+export const requestMovieDetailsFx = createEffect(getMovieDetails);
 
-export const fetchMovieDetailsFx: Effect<ApiClientProps, MovieDetailsResponse | { error: unknown }, Error>  = attach({
+export const fetchMovieDetailsFx: Effect<
+  ApiClientProps,
+  MovieDetailsResponse | { error: unknown },
+  Error
+> = attach({
   effect: requestMovieDetailsFx,
   mapParams: (params) => ({
     ...params,
@@ -50,11 +57,13 @@ export const movieDetailsQuery = createQuery({
   contract: MovieDetailsResponseContract,
 });
 
-export const requestMovieVideosFx = createEffect(
-  getMovieVideos,
-);
+export const requestMovieVideosFx = createEffect(getMovieVideos);
 
-export const fetchMovieVideosFx: Effect<ApiClientProps, MovieVideosResponse | { error: unknown }, Error>  = attach({
+export const fetchMovieVideosFx: Effect<
+  ApiClientProps,
+  MovieVideosResponse | { error: unknown },
+  Error
+> = attach({
   effect: requestMovieVideosFx,
   mapParams: (params) => ({
     ...params,

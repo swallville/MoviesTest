@@ -1,7 +1,13 @@
 import { createStore } from "effector";
 
 import { MoviesStore } from "../types";
-import { addMovieToFavorites, removeMovieFromFavorites, setMovies, setSelectedMovieDetails, setSelectedMovieVideos } from "./events";
+import {
+  addMovieToFavorites,
+  removeMovieFromFavorites,
+  setMovies,
+  setSelectedMovieDetails,
+  setSelectedMovieVideos,
+} from "./events";
 
 const INITIAL_DATA: MoviesStore = {
   movies: [],

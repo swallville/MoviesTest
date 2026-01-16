@@ -42,6 +42,7 @@ next-env.d.ts
 
 # lock files
 *lock.json
+*lock.yaml
 
 # local env files
 .env
