@@ -11,7 +11,7 @@ export const VideoPlayer = ({
     <section className="fixed top-0 w-screen h-screen z-1000 bg-black">
       <button
         onClick={onCloseVideo}
-        className="absolute top-6 right-6 z-1100 bg-[rgba(0,0,0,0.7)] text-white border-none rounded-[50%] w-10 h-10 text-2xl cursor-pointer"
+        className="absolute top-6 right-6 z-1100 bg-[rgba(0,0,0,0.7)] text-white border-none rounded-[50%] w-10 h-10 text-2xl hover:text-[#DEDEDE] focus:outline-none cursor-pointer"
         aria-label="Close video"
         type="button"
       >
